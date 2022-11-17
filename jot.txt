@@ -1,0 +1,2 @@
+map sore daata in an arranged format
+while set store keys
