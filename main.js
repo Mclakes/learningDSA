@@ -39,7 +39,13 @@ let user = {
     age: 54,
     name: "kylie",
     magic: true,
-    screen: function() {
+    scream: function() {
         console.log('ahhhhhh');
     }
 }
+
+ //0(1)
+user.spell = 'aba ka da bra';
+user
+
+console.log(user.scream())
