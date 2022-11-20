@@ -242,7 +242,16 @@ class LinkedList {
     }
 
     insert(index, value){
-
+        if(index >= this.length) {
+            console.log('yes');
+            return this.append(value);
+        }
+        const newNode ={
+            value: value,
+            next: null
+        }
+        const leader = this.traverseToIndex(index-1)
+        const holdingNOde
     }
 }
 
@@ -250,5 +259,7 @@ const myLinkedList = new LinkedList(10)
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
-// myLinkedList.insert(2, 99)
+myLinkedList.insert(4, 99)
+myLinkedList.printList()
+// console.log(myLinkedList.insert())
 console.log(myLinkedList.printList())
