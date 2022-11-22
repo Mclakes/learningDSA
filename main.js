@@ -357,7 +357,7 @@ class LinkedList {
         newNode.next = follower;
         follower.prev = newNode;
         this.length++;
-        console.log(this)
+        // console.log(this)
         return this.printList();
     }
     traverseToIndex(index) {
@@ -394,6 +394,7 @@ class LinkedList {
         }
         this.head.next = null;
         this.head = first
+        return this.printList();
         // let currentNode = this.head;
         // var previous = null
 
@@ -414,15 +415,17 @@ myLinkedList.append(16);
 // console.log(myLinkedList.printList());
 myLinkedList.prepend(1);
 // console.log(myLinkedList.printList());
-myLinkedList.insert(1, 99);
+myLinkedList.insert(2, 99);
 console.log(myLinkedList.printList());
 // myLinkedList.insert(3, 19);
 // console.log(myLinkedList.printList());
-// myLinkedList.insert(4, 29);
-// console.log(myLinkedList.printList());
+myLinkedList.insert(20, 88);
+console.log(myLinkedList.printList());
 // myLinkedList.remove(2);
 // console.log(myLinkedList.printList());
 // myLinkedList.remove(2);
 // myLinkedList.printList();
 // console.log(myLinkedList.insert())
 // console.log(myLinkedList.printList())
+// myLinkedList.remove(2)
+console.log(myLinkedList.reverse(2));
