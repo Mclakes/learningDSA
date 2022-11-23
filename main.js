@@ -357,7 +357,7 @@ class LinkedList {
         newNode.next = follower;
         follower.prev = newNode;
         this.length++;
-        // console.log(this)
+        console.log(this);
         return this.printList();
     }
     traverseToIndex(index) {
@@ -375,7 +375,9 @@ class LinkedList {
         const leader = this.traverseToIndex(index - 1);
         const unwantedNode = leader.next;
         leader.next = unwantedNode.next;
+        leader.next.prev = unwantedNode.prev;
         this.length--;
+        console.log(this);
         return this.printList();
     }
 
@@ -409,23 +411,21 @@ class LinkedList {
 }
 
 const myLinkedList = new LinkedList(10)
-myLinkedList.append(5);
-// console.log(myLinkedList.printList());
+myLinkedList.append(5)
 myLinkedList.append(16);
-// console.log(myLinkedList.printList());
 myLinkedList.prepend(1);
-// console.log(myLinkedList.printList());
 myLinkedList.insert(2, 99);
 console.log(myLinkedList.printList());
 // myLinkedList.insert(3, 19);
 // console.log(myLinkedList.printList());
-myLinkedList.insert(20, 88);
-console.log(myLinkedList.printList());
-// myLinkedList.remove(2);
+// myLinkedList.insert(20, 88);
+// console.log(myLinkedList.printList());
+console.log(myLinkedList.remove(2));
 // console.log(myLinkedList.printList());
 // myLinkedList.remove(2);
 // myLinkedList.printList();
 // console.log(myLinkedList.insert())
 // console.log(myLinkedList.printList())
-// myLinkedList.remove(2)
-console.log(myLinkedList.reverse(2));
+// // myLinkedList.remove(2)
+// console.log(myLinkedList.append(5));
+// console.log(myLinkedList.append(16));
