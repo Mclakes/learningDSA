@@ -152,6 +152,10 @@
 // // console.log('1', obj1)
 // console.log('2', obj2);
 
+//
+//linkend list
+//
+
 //10-->5-->16
 
 // let myLinkedList = {
