@@ -1,140 +1,43 @@
-// function BinaryTreeNode (values) {
-//     this.value = value;
-//     this.left = null;
-//     this.right = null;
-// }
-
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
+class Graph {
+    constructor () {
+        this.numberOfNodes = 0;
+        this.adjacentList = {};
     }
-}
-
-class BinarySearchTree {
-    constructor() {
-        this.root = null;
+    addVertex(node) {
+        this.adjacenciesList
     }
-    insert(value) {
-        const newNode = new Node(value);
-        if (this.root === null) {
-            this.root = newNode; 
-        } else {
-            let currentNode = this.root;
-            while(true) {
-                if (value < currentNode.value) {
-                    // left
-                    if(!currentNode.left) {
-                        currentNode.left = newNode;
-                        return this
-                    }
-                    currentNode = currentNode.left
-                } else {
-                    //right
-                    if(!currentNode.right) {
-                        currentNode.right = newNode;
-                        return this;
-                    }
-                    currentNode = currentNode.right
-                }
+    addEdge(node1, node2) {
+        //undirected Graph
+    }
+    showConnections () {
+        const allNodes =Object.keys(this.adjacentList);
+        for (let node of allNodes) {
+            let nodeConnections = this.adjacentList[node];
+            let connections = "";
+            let vertex;
+            for (vertex of nodeConnections) {
+                connections += vertex + " ";
             }
+            console.log(node + "-->" + connections)
         }
     }
-    lookup (value) {
-      if (!this.root)  {
-        return false;
-      }
-      let currentNode = this.root;
-      while(currentNode) {
-        if (value < currentNode.value) {
-            currentNode = currentNode.left
-        } else if (value > currentNode.value) {
-            currentNode = currentNode.right;
-        } else if (currentNode.value === value) {
-            return currentNode;
-        }
-      }
-      return false;
-    }
-    remove(value) {
-        if(!this.root) {
-            return false;
-        }
-        let currentNode = this.root;
-        let parentNode = null;
-        while(currentNode) {
-            if (value < currentNode.value) {
-                parentNode = currentNode;
-                currentNode = currentNode.left; 
-            } else if (value > currentNode.value) {
-                parentNode = currentNode;
-                currentNode = currentNode.right; 
-            }  else if (currentNode.value === value) {
-                if (currentNode.right === null) {
-                    if(parentNode === null) {
-                        this.root = currentNode.left;
-                    } else {
-                        if (currentNode.value < parentNode.value) {
-                            parentNode.left = currentNode.left;
-                        } else if (currentNode.value > parentNode.value) {
-                            parentNode.right = currentNode.left
-                        }
-                    }
-                } else if(currentNode.right.left === null){
-                    if (parentNode == null) {
-                        this.root = currentNode.left
-                    } else {
-                        currentNode.right.left = currentNode.left;
-                        if (currentNode.value <parentNode.value) {
-                            parentNode.left = currentNode.right;
-                        } else if (currentNode.value > parentNode.value) {
-                            parentNode.right = currentNode.right;
-                        }
-                    }
-                } else {
-                    let leftmost = curentNode.right.left;
-                    let leftmostParent = curentNode.right;
-                    while(leftmost.left !== null) {
-                        leftmostParent =leftmost;
-                        leftmost = leftmost.left
-                    }
-                    leftmost.left = leftmost.right;
-                    leftmost.left = currentNode.left;
-                    leftmost.right = currentNode.right;
-
-                    if (parentNode === null) {
-                        this.root = leftmost;
-                    } else {
-                        if(currentNode.value < parentNode.value) {
-                            parent.left = leftmost;
-                        } else if (currentNode.value > parentNode.value) {
-                            parentNode.right = leftmost
-                        }
-                    }
-                }
-                return true; 
-            }
-        }
-    }
-
 }
 
-const tree = new BinarySearchTree();
-tree.insert(9);
-tree.insert(4);
-tree.insert(6);
-tree.insert(20);
-tree.insert(170);
-tree.insert(15);
-tree.insert(1);
-// console.log(tree.lookup(2));
-console.log(tree.remove(170));
-console.log( JSON.stringify(traverse(tree.root)));
+const myGraph = new Graph;
+myGraph.addVertex('0');
+myGraph.addVertex('1');
+myGraph.addVertex('2');
+myGraph.addVertex('3');
+myGraph.addVertex('4');
+myGraph.addVertex('5');
+myGraph.addVertex('6');
+myGraph.addEdge('3', '1');
+myGraph.addEdge('3', '4');
+myGraph.addEdge('4','2');
+myGraph.addEdge('4','5');
+myGraph.addEdge('1','2');
+myGraph.addEdge('1','0');
+myGraph.addEdge('0','2');
+myGraph.addEdge('6','5');
 
-function traverse(node) {
-    const tree = {value: node.value };
-    tree.left = node.left === null ? null : traverse(node.left);
-    tree.right = node.right === null ? null : traverse(node.right);
-    return tree;
-}
+myGraph.showConnections();

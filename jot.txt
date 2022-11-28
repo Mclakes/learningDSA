@@ -1,2 +1,11 @@
 map sore daata in an arranged format
 while set store keys
+
+types of graphs
+linked list is a type of tree which is a type of tree
+
+we have directed and undirected graph
+also cyclic and acyclic
+weighted
+
+Edge list
