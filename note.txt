@@ -1,0 +1,12 @@
+1.identity baase case
+2. identify recursive case
+3. Get closer and closer and return
+when needed and ususally you have two returns
+
+
+sorting
+1.bubble
+2.seection
+3.insertion
+
+...are all called selection sorting
